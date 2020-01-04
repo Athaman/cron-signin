@@ -1,0 +1,16 @@
+service: signin-cron
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  stage: dev
+  region: ap-southeast-2
+  memorySize: 128
+  timeoute: 6
+
+
+functions:
+  checkin:
+    handler: handler.checkin
+    events:
+     - schedule: rate(1 day)
